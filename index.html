@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Hope Hospitals</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body>
+    <!-- LOADING SCREEN -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loading-content">
+            <div class="pulse-loader">
+                <div class="pulse-circle"></div>
+                <div class="pulse-circle"></div>
+                <div class="pulse-circle"></div>
+            </div>
+            <h2>Hop</h2>
+            <p>Loading your healthcare experience...</p>
+        </div>
+    </div>
+
+    <!-- NOTIFICATION -->
+    <div id="notification" class="notification"></div>
+
+
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <div class="logo">
+                <i class="fas fa-heartbeat"></i>
+                <h2>Hope Hospitals</h2>
+            </div>
+            <div class="hospital-tagline">Your Health,Our priority</div>
+        </div>
+
+        <ul class="nav-menu">
+            <li><a href="#" onclick="showHome()" class="nav-link"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#" onclick="showDoctors()" class="nav-link"><i class="fas fa-user-md"></i> Doctors</a></li>
+            <li><a href="#" onclick="showAppointment()" class="nav-link"><i class="fas fa-calendar-check"></i> Appointments</a></li>
+            <li><a href="#" onclick="showPharmacy()" class="nav-link"><i class="fas fa-pills"></i> Pharmacy</a></li>
+            <li><a href="#" onclick="showEmergency()" class="nav-link"><i class="fas fa-ambulance"></i> Emergency</a></li>
+        </ul>
+
+        <div class="nav-right">
+            <button class="cart-btn" onclick="toggleCart()">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count" id="cartCount">0</span>
+                <span class="cart-text">Cart</span>
+            </button>
+            <button class="login-btn" onclick="showLogin()">
+                <i class="fas fa-user"></i> Login
+            </button>
+        </div>
+    </nav>
+
+    <!-- ===== HOME SECTION ===== -->
+    <section id="home" class="section active">
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="status-badge">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Open now</span>
+                    </div>
+                    <h1 class="hero-title animate-text">Quality Healthcare For Your Family</h1>
+                    <p class="hero-subtitle">
+                        Experience world-class medical care with expert doctors.
+                        Book appointments and consult online easily.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat-card">
+                            <i class="fas fa-users"></i>
+                            <h3>50K+</h3>
+                            <p>Patients Treated</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-stethoscope"></i>
+                            <h3>100+</h3>
+                            <p>Expert Doctors</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-award"></i>
+                            <h3>25+</h3>
+                            <p>Years Experience</p>
+                        </div>
+                    </div>
+                    <div class="hero-buttons">
+                        <button class="btn btn-primary animate-btn" onclick="showAppointment()">
+                            <i class="fas fa-calendar-plus"></i> Book Appointment
+                        </button>
+                        <button class="btn btn-secondary animate-btn" onclick="showPharmacy()">
+                            <i class="fas fa-prescription-bottle-alt"></i> Pharmacy Store
+                        </button>
+                        <button class="btn btn-outline animate-btn" onclick="showEmergency()">
+                            <i class="fas fa-phone-alt"></i> Emergency Call
+                        </button>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="timing-card floating-card">
+                        <div class="card-header">
+                            <i class="fas fa-clock"></i>
+                            <h3>Hospital Timings</h3>
+                        </div>
+                        <div class="timing-item">
+                            <span>Monday - Friday</span>
+                            <span class="time">08:00 - 22:00</span>
+                        </div>
+                        <div class="timing-item">
+                            <span>Saturday</span>
+                            <span class="time">09:00 - 18:00</span>
+                        </div>
+                        <div class="timing-item">
+                            <span>Sunday</span>
+                            <span class="time">10:00 - 14:00</span>
+                        </div>
+                        <div class="emergency-box pulse">
+                            <i class="fas fa-ambulance"></i>
+                            <div>
+                                <h4>Emergency 24/7</h4>
+                                <p>Immediate Care Available</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="quick-features">
+            <div class="feature-card" onclick="showAppointment()">
+                <div class="feature-icon"><i class="fas fa-video"></i></div>
+                <h4>Video Consultation</h4>
+                <p>Connect with doctors online</p>
+            </div>
+            <div class="feature-card" onclick="showDoctors()">
+                <div class="feature-icon"><i class="fas fa-stethoscope"></i></div>
+                <h4>Find Doctors</h4>
+                <p>Book appointment instantly</p>
+            </div>
+            <div class="feature-card" onclick="showPharmacy()">
+                <div class="feature-icon"><i class="fas fa-prescription"></i></div>
+                <h4>Digital Prescription</h4>
+                <p>Get medicines delivered</p>
+            </div>
+            <div class="feature-card" onclick="showEmergency()">
+                <div class="feature-icon"><i class="fas fa-heartbeat"></i></div>
+                <h4>Emergency</h4>
+                <p>Dail Anytime 24/7</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== APPOINTMENT SECTION ===== -->
+    <section id="appointment" class="section">
+        <div class="section-header">
+            <h2 class="section-title">Schedule an Appointment</h2>
+            <p class="section-subtitle">Fill in your details below to book your slot</p>
+        </div>
+
+        <div class="appointment-container">
+            <form id="appointmentForm" class="appointment-form">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Patient Information</label>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <input type="text" placeholder="Full Name" required class="form-input" />
+                            <i class="fas fa-user input-icon"></i>
+                        </div>
+                        <div class="input-group">
+                            <input type="number" placeholder="Age" required class="form-input" />
+                            <i class="fas fa-birthday-cake input-icon"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-venus-mars"></i> Personal Details</label>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <select required class="form-input">
+                                <option value="">Select Gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
+                            </select>
+                            <i class="fas fa-venus-mars input-icon"></i>
+                        </div>
+                        <div class="input-group">
+                            <input type="tel" placeholder="Contact Number" required class="form-input" />
+                            <i class="fas fa-phone input-icon"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-file-medical"></i> Health Information</label>
+                    <div class="input-group">
+                        <textarea placeholder="Health Problem / Symptoms" required class="form-input"></textarea>
+                        <i class="fas fa-notes-medical input-icon"></i>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-calendar-alt"></i> Appointment Details</label>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <select required class="form-input">
+                                <option value="">Preferred Doctor</option>
+                                <option>Dr. Sivacharan Sai (Cardiologist)</option>
+                                <option>Dr. Arjun Reddy(Neurologist)</option>
+                                <option>Dr. lalith (Pediatrician)</option>
+                                <option>Dr. Riya (Orthopedic)</option>
+                            </select>
+                            <i class="fas fa-user-md input-icon"></i>
+                        </div>
+                        <div class="input-group">
+                            <input type="date" required class="form-input" />
+                            <i class="fas fa-calendar input-icon"></i>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <select required class="form-input">
+                                <option value="">Time Slot</option>
+                                <option>10:00 AM - 11:00 AM</option>
+                                <option>12:00 PM - 01:00 PM</option>
+                                <option>04:00 PM - 05:00 PM</option>
+                                <option>06:00 PM - 07:00 PM</option>
+                            </select>
+                            <i class="fas fa-clock input-icon"></i>
+                        </div>
+                        <div class="input-group">
+                            <select required class="form-input">
+                                <option value="">Appointment Type</option>
+                                <option>In-Person Visit</option>
+                                <option>Video Consultation</option>
+                                <option>Telephone Consultation</option>
+                            </select>
+                            <i class="fas fa-headset input-icon"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-credit-card"></i> Payment Method</label>
+                    <div class="payment-methods">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" checked />
+                            <i class="fas fa-credit-card"></i>
+                            <span>Credit Card</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" />
+                            <i class="fas fa-university"></i>
+                            <span>Insurance</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" />
+                            <i class="fas fa-wallet"></i>
+                            <span>Cash</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fas fa-calendar-check"></i> Confirm Appointment
+                </button>
+            </form>
+
+            <div class="appointment-info">
+                <div class="info-card">
+                    <h3><i class="fas fa-info-circle"></i> Important Information</h3>
+                    <ul class="info-list">
+                        <li><i class="fas fa-check-circle"></i> Arrive 15 minutes before appointment</li>
+                        <li><i class="fas fa-check-circle"></i> Bring your insurance card</li>
+                        <li><i class="fas fa-check-circle"></i> Previous medical records if any</li>
+                        <li><i class="fas fa-check-circle"></i> Valid ID proof required</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3><i class="fas fa-shield-alt"></i> COVID-19 Safety</h3>
+                    <ul class="info-list">
+                        <li><i class="fas fa-mask"></i> Masks mandatory</li>
+                        <li><i class="fas fa-temperature-high"></i> Temperature screening</li>
+                        <li><i class="fas fa-hands-wash"></i> Sanitization stations</li>
+                        <li><i class="fas fa-people-arrows"></i> Social distancing maintained</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DOCTORS SECTION ===== -->
+    <section id="doctors" class="section">
+        <div class="section-header">
+            <h2 class="section-title">Meet Our Expert Doctors</h2>
+            <p class="section-subtitle">Highly qualified medical professionals with years of experience</p>
+        </div>
+
+        <div class="filter-controls">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search doctors by name or specialization..." id="doctorSearch" onkeyup="filterDoctors()">
+            </div>
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterBySpecialty('all', this)">All</button>
+                <button class="filter-btn" onclick="filterBySpecialty('cardiology', this)">Cardiology</button>
+                <button class="filter-btn" onclick="filterBySpecialty('neurology', this)">Neurology</button>
+                <button class="filter-btn" onclick="filterBySpecialty('pediatrics', this)">Pediatrics</button>
+                <button class="filter-btn" onclick="filterBySpecialty('orthopedics', this)">Orthopedics</button>
+            </div>
+        </div>
+
+        <div class="doctor-grid"></div>
+
+        <div class="doctor-stats">
+            <div class="stat-box">
+                <i class="fas fa-star"></i>
+                <h3>4.9/5</h3>
+                <p>Patient Satisfaction</p>
+            </div>
+            <div class="stat-box">
+                <i class="fas fa-clock"></i>
+                <h3>15 Min</h3>
+                <p>Average Wait Time</p>
+            </div>
+            <div class="stat-box">
+                <i class="fas fa-calendar-check"></i>
+                <h3>98%</h3>
+                <p>Appointment Success</p>
+            </div>
+            <div class="stat-box">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>15+</h3>
+                <p>Years Experience Avg.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PHARMACY SECTION ===== -->
+    <section id="pharmacy" class="section">
+        <div class="section-header">
+            <h2 class="section-title">In-House Pharmacy</h2>
+            <p class="section-subtitle">Get genuine medicines at affordable prices with doorstep delivery</p>
+        </div>
+
+        <div class="pharmacy-controls">
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search medicines..." id="medicineSearch" onkeyup="filterMedicines()">
+            </div>
+            <div class="category-filter">
+                <select id="categoryFilter" onchange="filterMedicines()">
+                    <option value="all">All Categories</option>
+                    <option value="pain">Pain Relief</option>
+                    <option value="antibiotic">Antibiotics</option>
+                    <option value="supplement">Supplements</option>
+                    <option value="allergy">Allergy</option>
+                    <option value="chronic">Chronic Care</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="medicine-grid"></div>
+
+        <div class="pharmacy-features">
+            <div class="feature">
+                <i class="fas fa-shield-alt"></i>
+                <h4>100% Genuine</h4>
+                <p>Quality assured medicines</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-truck"></i>
+                <h4>Free Delivery</h4>
+                <p>Same day delivery available</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-prescription"></i>
+                <h4>Digital Prescription</h4>
+                <p>Upload prescription easily</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-clock"></i>
+                <h4>24/7 Available</h4>
+                <p>Emergency medicines anytime</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EMERGENCY SECTION ===== -->
+    <section id="emergency" class="section">
+        <div class="emergency-container">
+            <div class="emergency-content">
+                <div class="emergency-header">
+                    <h1 class="emergency-title">EMERGENCY MEDICAL CARE</h1>
+                    <p class="emergency-subtitle">Immediate assistance available 24/7</p>
+                </div>
+                <div class="emergency-info">
+                    <div class="emergency-card critical">
+                        <i class="fas fa-ambulance"></i>
+                        <h3>Call Ambulance</h3>
+                        <p class="number">+1 (555) 911-HELP</p>
+                        <button class="btn btn-emergency" onclick="callAmbulance()">
+                            <i class="fas fa-phone"></i> Call Now
+                        </button>
+                    </div>
+                    <div class="emergency-warning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <p>In case of emergency, do not wait. Call immediately!</p>
+                    </div>
+                    <div class="emergency-services">
+                        <h3><i class="fas fa-first-aid"></i> Emergency Services</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Cardiac Emergency</li>
+                            <li><i class="fas fa-check"></i> Trauma Care</li>
+                            <li><i class="fas fa-check"></i> Stroke Management</li>
+                            <li><i class="fas fa-check"></i> Poison Control</li>
+                            <li><i class="fas fa-check"></i> Burn Care</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CART SIDEBAR ===== -->
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Your Cart</h3>
+            <button class="close-cart" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <div class="empty-cart" id="emptyCart">
+                <i class="fas fa-shopping-basket"></i>
+                <p>Your cart is empty</p>
+                <button class="btn btn-outline" onclick="showPharmacy()">Browse Medicines</button>
+            </div>
+        </div>
+        <div class="cart-summary">
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="subtotal">₹0</span>
+            </div>
+            <div class="summary-row">
+                <span>Delivery</span>
+                <span id="delivery">₹0</span>
+            </div>
+            <div class="summary-row total">
+                <span>Total</span>
+                <span id="cartTotal">₹0</span>
+            </div>
+            <button class="btn btn-primary btn-block" onclick="placeOrder()" id="checkoutBtn">
+                <i class="fas fa-shopping-bag"></i> Checkout Now
+            </button>
+            <div class="cart-features">
+                <p><i class="fas fa-shield-alt"></i> Secure Payment</p>
+                <p><i class="fas fa-truck"></i> Free Delivery</p>
+                <p><i class="fas fa-undo"></i> Easy Returns</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- OVERLAY -->
+    <div class="overlay" id="overlay" onclick="toggleCart()"></div>
+
+    <!-- ===== LOGIN MODAL ===== -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-user-circle"></i> User Login</h3>
+                <button class="close-modal" onclick="closeLogin()"><i class="fas fa-times"></i></button>
+            </div>
+            <form id="loginForm">
+                <div class="input-group">
+                    <input type="email" placeholder="Email Address" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="input-group">
+                    <input type="password" placeholder="Password" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                <div class="modal-footer">
+                    <p>New user? <a href="#" onclick="showRegister()">Register here</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===== TEMPLATES ===== -->
+    <template id="doctor-card-template">
+        <div class="doctor-card">
+            <div class="doctor-image">
+                <img src="" alt="Doctor">
+                <div class="doctor-status"></div>
+            </div>
+            <div class="doctor-info">
+                <h3 class="doctor-name"></h3>
+                <span class="doctor-specialty"></span>
+                <div class="doctor-experience">
+                    <i class="fas fa-briefcase"></i>
+                    <span class="exp-text"></span>
+                </div>
+                <div class="doctor-rating">
+                    <span class="rating-stars"></span>
+                    <span class="rating-value"></span>
+                </div>
+                <p class="doctor-desc"></p>
+                <div class="doctor-actions">
+                    <button class="action-btn book">
+                        <i class="fas fa-calendar-plus"></i> Book
+                    </button>
+                    <button class="action-btn profile">
+                        <i class="fas fa-user"></i> Profile
+                    </button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="medicine-card-template">
+        <div class="medicine-card">
+            <span class="medicine-badge"></span>
+            <h3 class="medicine-name"></h3>
+            <p class="medicine-desc">
+                <i class="fas"></i>
+                <span class="desc-text"></span>
+            </p>
+            <p class="stock-status">
+                <i class="fas">.</i>
+                <span class="stock-text"></span>
+            </p>
+            <div class="medicine-price"></div>
+            <div class="quantity-controls">
+                <button class="quantity-btn minus">-</button>
+                <span class="quantity-value">1</span>
+                <button class="quantity-btn plus">+</button>
+            </div>
+            <button class="add-to-cart-btn">
+                <i class="fas fa-cart-plus"></i> Add
+            </button>
+        </div>
+    </template>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
